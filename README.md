@@ -6,6 +6,7 @@
 <h2>Tested</h2>
 <p>
 (Ubuntu ✓)
+(Linux Mint ✓)
 
 </p>
 <p>(You can find the downloaded video files in the folder "Youtube_video" )</p>
