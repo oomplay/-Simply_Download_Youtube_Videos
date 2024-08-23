@@ -24,7 +24,6 @@ os.system('apt install ffmpeg -y'),time.sleep(0.2),cls()
 print("install_youtube_dl"),time.sleep(2),cls()
 os.system('pip install yt-dlp'),time.sleep(0.2),cls()
 os.system('pip install yt-dlp -U'),time.sleep(0.2),cls()
-os.system('pip install requests'),time.sleep(0.2),cls()
 os.system(' mkdir -p Youtube_video'),time.sleep(0.2),cls()
 
 
