@@ -1,4 +1,6 @@
 import time
+import requests
+import random
 import os
 
 cls = lambda: os.system("clear")
@@ -44,6 +46,11 @@ print(TYPE)
 
 
 SELECT = int(input("Enter 1-5: "))
+PXURL = "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt"
+#Proxy from "https://github.com/TheSpeedX/PROXY-List"
+response = requests.get(PXURL)
+proxies = response.text.splitlines()
+random_proxy = random.choice(proxies)
 
 quality_options = {
     1: "bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]",
@@ -58,7 +65,8 @@ if SELECT in quality_options:
     print(f"DOWNLOAD VIDEO")
     time.sleep(1)
     cls()
-    os.system(f'yt-dlp -f "{quality_options[SELECT]}" --output "./Youtube_video/%(title)s.%(ext)s" "{URL}"')
+    #os.system(f'yt-dlp -f "{quality_options[SELECT]}" --output "./Youtube_video/%(title)s.%(ext)s" "{URL}"')
+    os.system(f'yt-dlp -f "{quality_options[SELECT]}" --output "./Youtube_video/%(title)s.%(ext)s" --proxy "socks5://{random_proxy}" "{URL}"')
     time.sleep(0.2)
 else:
     print('Invalid selection. Try again!')
