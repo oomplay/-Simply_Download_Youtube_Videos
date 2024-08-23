@@ -1,5 +1,5 @@
 import time
-import requests
+import urllib.request
 import random
 import os
 
@@ -48,9 +48,9 @@ print(TYPE)
 SELECT = int(input("Enter 1-5: "))
 PXURL = "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt"
 #Proxy from "https://github.com/TheSpeedX/PROXY-List"
-response = requests.get(PXURL)
-proxies = response.text.splitlines()
-random_proxy = random.choice(proxies)
+with urllib.request.urlopen(PXURL) as response:
+    proxies = response.read().decode().splitlines()
+    random_proxy = random.choice(proxies)
 
 quality_options = {
     1: "bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]",
